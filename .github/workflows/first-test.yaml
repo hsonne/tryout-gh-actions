@@ -10,7 +10,7 @@ jobs:
         with:
           r-version: release
       - uses: r-lib/actions/setup-pandoc@v2
-      - uses: r-lib/actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Install and load R package sf
         shell: RScript {0}
         run: |
