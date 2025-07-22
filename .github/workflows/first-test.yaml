@@ -12,36 +12,26 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: release
-      - name: Install remotes
+      - name: Install and load R package sf
         shell: Rscript {0}
-        run: | 
+        run: |        
+          install.packages("units")
+          install.packages("sf")          
+      - name: Install pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Linux packages
+        run: |
+          sudo apt-get install -y libgdal-dev libudunits2-dev
+      - name: Install and load R package sf
+        shell: Rscript {0}
+        run: |        
+          install.packages("units")
+          install.packages("sf")
           install.packages("remotes")
-          cat("GITHUB_PAT:", Sys.getenv("GITHUB_PAT"), "\n")
-          cat("GITHUB_TOKEN:", Sys.getenv("GITHUB_TOKEN"), "\n")
-          cat("remotes:::github_pat():", remotes:::github_pat(quiet = FALSE), "\n")
           remotes::install_github("kwb-r/kwb.rabimo", upgrade = "never")
-#      - name: Install and load R package sf
-#        shell: Rscript {0}
-#        run: |        
-#          install.packages("units")
-#          install.packages("sf")          
-#      - name: Install pandoc
-#        uses: r-lib/actions/setup-pandoc@v2
-#      - name: Checkout repository
-#        uses: actions/checkout@v2
-#      - name: Install Linux packages
-#        run: |
-#          sudo apt-get install -y libgdal-dev libudunits2-dev
-#      - name: Install and load R package sf
-#        shell: Rscript {0}
-#        run: |        
-#          install.packages("units")
-#          install.packages("sf")
-#          install.packages("remotes")
-#          print(Sys.getenv("GITHUB_PAT"))
-#          print(remotes:::github_pat())
-#          Sys.unsetenv("GITHUB_PAT")
-#          remotes::install_github("kwb-r/kwb.rabimo", upgrade = "never")
+          library(kwb.rabimo)
 #  job-2:
 #    name: "Job 2: Say hallo on Windows"
 #    runs-on: windows-latest
