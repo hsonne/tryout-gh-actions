@@ -20,7 +20,9 @@ jobs:
           install.packages("units")
           install.packages("sf")
           install.packages("remotes")
-          remotes::install_github("kwb-r/kwb.rabimo")
+          print(Sys.getenv("GITHUB_PAT"))
+          Sys.unsetenv("GITHUB_PAT")
+          remotes::install_github("kwb-r/kwb.rabimo", upgrade = "never")
   job-2:
     name: "Job 2: Say hallo on Windows"
     runs-on: windows-latest
