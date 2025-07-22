@@ -17,6 +17,7 @@ jobs:
           cat("GITHUB_PAT:", Sys.getenv("GITHUB_PAT"), "\n")
           cat("GITHUB_TOKEN:", Sys.getenv("GITHUB_TOKEN"), "\n")
           cat("remotes:::github_pat():", remotes:::github_pat(quiet = FALSE), "\n")
+          remotes::install_github("kwb-r/kwb.rabimo", upgrade = "never", auth_token = NULL)
 #      - name: Install and load R package sf
 #        shell: Rscript {0}
 #        run: |        
