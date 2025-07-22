@@ -15,7 +15,7 @@ jobs:
         run: | 
           install.packages("remotes")
           print(Sys.getenv("GITHUB_PAT"))
-          print(remotes:::github_pat())        
+          print(remotes:::github_pat(quiet = FALSE))
       - name: Install and load R package sf
         shell: Rscript {0}
         run: |        
