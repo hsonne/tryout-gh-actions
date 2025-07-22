@@ -12,7 +12,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: actions/checkout@v2
       - name: Install and load R package sf
-        shell: RScript {0}
+        shell: Rscript {0}
         run: |
           install.packages("sf")
           library(sf)
