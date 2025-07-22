@@ -11,9 +11,12 @@ jobs:
           r-version: release
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: actions/checkout@v2
+      - name: Install Linux packages
+        run: |
+          sudo apt-get install -y libudunits2-dev
       - name: Install and load R package sf
         shell: Rscript {0}
-        run: |
+        run: |        
           install.packages("units")
           install.packages("sf")
           library(sf)
