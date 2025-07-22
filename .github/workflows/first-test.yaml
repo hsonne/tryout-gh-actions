@@ -19,7 +19,8 @@ jobs:
         run: |        
           install.packages("units")
           install.packages("sf")
-          library(sf)
+          install.packages("remotes")
+          remotes::install_github("kwb-r/kwb.rabimo")
   job-2:
     name: "Job 2: Say hallo on Windows"
     runs-on: windows-latest
