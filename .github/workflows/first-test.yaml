@@ -10,4 +10,4 @@ jobs:
         run: |
           set | grep "^GITHUB_"
           short_sha=$(echo $GITHUB_SHA | cut -c 1-8)
-          echo short_sha
+          echo $short_sha
