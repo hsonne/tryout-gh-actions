@@ -7,4 +7,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: List env variables
-        run: set
+        run: |
+          set
+          set short_sha=$(git rev-parse --short "$GITHUB_SHA")
+          echo short_sha
