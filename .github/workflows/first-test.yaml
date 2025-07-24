@@ -15,7 +15,7 @@ jobs:
           echo "short_sha=$short_sha" >> $GITHUB_ENV
       - name: Read short sha
         env:
-          local_short_sha: ${{ env.short_sha }}
+          local_short_sha: $(echo $GITHUB_SHA | cut -c 1-8)
         run: |
           printf "Content of $GITHUB_ENV:\n>>>>"
           cat $GITHUB_ENV
