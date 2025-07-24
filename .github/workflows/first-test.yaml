@@ -20,5 +20,5 @@ jobs:
           printf "Content of $GITHUB_ENV:\n>>>>"
           cat $GITHUB_ENV
           printf "<<<<\n"
-          echo short_sha: $short_sha
-          echo local_short_sha: $local_short_sha
+          echo "short_sha: $short_sha"
+          echo "local_short_sha: $local_short_sha"
