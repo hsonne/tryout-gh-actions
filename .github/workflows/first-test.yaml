@@ -10,5 +10,5 @@ jobs:
         run: |
           set | grep "^GITHUB_"
           short_sha=$(echo $GITHUB_SHA | cut -c 1-8)
-          echo GITHUB_SHA long:  $GITHUB_SHA
-          echo GITHUB_SHA short: $short_sha
+          echo "GITHUB_SHA long:  $GITHUB_SHA"
+          echo "GITHUB_SHA short: $short_sha"
