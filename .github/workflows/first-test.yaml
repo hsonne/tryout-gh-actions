@@ -14,6 +14,6 @@ jobs:
           echo "GITHUB_SHA short: $short_sha"
           echo "short_sha=$short_sha" >> $GITHUB_ENV
       - name: Read short sha
-        run: 
+        run: |
           cat $GITHUB_ENV
           echo $short_sha
