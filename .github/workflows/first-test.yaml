@@ -8,6 +8,6 @@ jobs:
     steps:
       - name: List env variables
         run: |
-          set
+          set | grep "^GITHUB_"
           set short_sha=$(git rev-parse --short "$GITHUB_SHA")
           echo short_sha
