@@ -12,10 +12,13 @@ jobs:
           short_sha=$(echo $GITHUB_SHA | cut -c 1-8)
           echo "GITHUB_SHA long:  $GITHUB_SHA"
           echo "GITHUB_SHA short: $short_sha"
-          #echo "short_sha=$short_sha" >> $GITHUB_ENV
+          echo "short_sha=$short_sha" >> $GITHUB_ENV
       - name: Read short sha
+        env:
+          local_short_sha: $short_sha
         run: |
           printf "Content of $GITHUB_ENV:\n>>>>"
           cat $GITHUB_ENV
           printf "<<<<\n"
-          echo $short_sha
+          echo short_sha: $short_sha
+          echo local_short_sha: $local_short_sha
